@@ -1,24 +1,15 @@
 const app = require('express')();
-const PORT = process.env.PORT || 5000
-const db = require('./db/knex.js');
+const PORT = process.env.PORT || 5000;
+const configurateApp = require('./config/config.js');
+const middlewares = require('./api/middleware.js');
 
-let endereco = {
-    apelido:'casa do breno',
-    logradouro: 'rua benedito de barros',
-    numero: 161,
-    cep: '05882-379',
-    uf: 'SP',
-    cidade: 'São Paulo',
-    complemento: 'atrás de uma calçada'
 
+const start = async (app) => {
+    await configurateApp(app);
+    await middlewares(app);
 }
 
-db("endereco").insert(endereco).returning('*').catch(err => console.log(err));
-
-//app.get('/', (req, res) => res.send("Hello AppVerso"));
-
-
-
-
+start(app);
 
 app.listen(PORT, () => console.log(`Listening oon ${PORT}`));
+module.exports = app;
