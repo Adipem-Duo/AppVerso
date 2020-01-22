@@ -1,5 +1,5 @@
 const save = async (req, res) => {
-    res.send("hello architecture")
+    res.send("hello architecture");
 }
 
 

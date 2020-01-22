@@ -1,12 +1,13 @@
 const app = require('express')();
 const PORT = process.env.PORT || 5000;
-const configurateApp = require('./config/config.js');
-const middlewares = require('./api/middleware.js');
-
+const configurateMiddlewares = require('./config/config.js');
+const configureEndPoints = require('./src/routes.js');
+const swaggerDoc = require('./swaggerDocs');
 
 const start = async (app) => {
-    await configurateApp(app);
-    await middlewares(app);
+    await configurateMiddlewares(app);
+    await configureEndPoints(app);
+    await swaggerDoc(app);
 }
 
 start(app);
