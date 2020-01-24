@@ -4,7 +4,5 @@ const knex = require('knex')({
     connection,
     useNullAsDefault: true
 });
-if (process.env.DATABASE_URL != null) {
-    knex.migrate.latest();
-}
+knex.migrate.latest();
 module.exports = knex;
