@@ -6,9 +6,10 @@ const options = {
         openapi: '3.0.0',
         info: {
             openapi: "3.0",
-            title: "test API",
+            title: "AppVerso",
             version: '2.0.0',
-            description: 'Just testing an swagger documentation',
+            description: 'Nada do que você tentar usar abaixo eu te garanto que irá funcinoar, mas deve funcionar da ' +
+            'mas deveria funcionar do jeito que está especificado, teje avisado xD',
         }
     },
     apis:['./src/routes.js']

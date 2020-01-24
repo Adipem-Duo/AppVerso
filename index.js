@@ -1,6 +1,6 @@
 const app = require('express')();
 const PORT = process.env.PORT || 5000;
-const configurateMiddlewares = require('./config/config.js');
+const configurateMiddlewares = require('./src/config/config.js');
 const configureEndPoints = require('./src/routes.js');
 const swaggerDoc = require('./swaggerDocs');
 

@@ -4,9 +4,17 @@ const api = require('./apis.js')
 const middlewares = async (app) => {
     /**
      * @swagger
-     * /user:
-     *  get:
-     *    description: this will return all users
+     * /signup:
+     *      post:
+     *      description: esse endpoit deverá cadastrar um usuário
+     *      consumes:
+     *      - "application/json"
+     *      produces:
+     *      - "application/json"
+     *      parameters:
+     *      - in: "body"
+     *      name: "email"
+     *    
      */
     app.get('/signup',api.user.save)
 }
