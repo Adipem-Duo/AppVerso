@@ -2,13 +2,11 @@ const app = require('express')();
 const PORT = process.env.PORT || 5000;
 const configurateMiddlewares = require('./src/config/config.js');
 const configureEndPoints = require('./src/routes.js');
-const swaggerDoc = require('./swaggerDocs');
-const db = require('./db/knex');
-
-if (process.env.DATABASE_URL !== null)
-    db.migrate.latest();
+const swaggerDoc = require('./config/swaggerDocs');
+const { setLatestsMigration }   = require('./db/knex')
 
 const start = async (app) => {
+    await setLatestsMigration(app);
     await configurateMiddlewares(app);
     await configureEndPoints(app);
     await swaggerDoc(app);

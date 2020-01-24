@@ -9,6 +9,9 @@ module.exports = {
       port: '5432',
       password: process.env.MY_PASS,
       database: process.env.MY_DATABASE
+    },
+    migrations: {
+      directory: './db/migrations'
     }
   },
   production: {

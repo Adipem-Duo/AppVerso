@@ -4,5 +4,9 @@ const knex = require('knex')({
     connection,
     useNullAsDefault: true
 });
-knex.migrate.latest();
-module.exports = knex;
+
+exports.setLatestsMigration = async () =>{
+    if (process.env.NODE_ENV === 'production')
+        knex.migrate.latest();
+}
+exports.db = knex;
