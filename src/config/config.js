@@ -2,6 +2,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 module.exports = async (app) => {
-    app.use(bodyParser.json());
+    
+    app.use(bodyParser.json()); 
     app.use(cors());
+
 }

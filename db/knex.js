@@ -9,4 +9,6 @@ exports.setLatestsMigration = async () =>{
     if (process.env.NODE_ENV === 'production')
         knex.migrate.latest();
 }
+
+
 exports.db = knex;

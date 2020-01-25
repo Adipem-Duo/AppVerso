@@ -1,24 +1,14 @@
 const api = require('./apis.js')
+const passport = require('./config/passport');
 
+const middlewares = async (app) => {  
+    
+    app.post('/signup', api.user.save)
+    app.post('/signin', api.auth.signin)
+    app.post('/validateToken', api.auth.validateToken)
 
-const middlewares = async (app) => {
-    /**
-     * @swagger
-     * /signup:
-     *      post:
-     *      description: esse endpoit deverá cadastrar um usuário
-     *      consumes:
-     *      - "application/json"
-     *      produces:
-     *      - "application/json"
-     *      parameters:
-     *      - in: "body"
-     *      name: "email"
-     *    
-     */
-    app.get('/signup',api.user.save)
+    app.route('/users')
+        .all(passport())
+
 }
-
-
-
 module.exports = middlewares;

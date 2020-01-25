@@ -5,7 +5,6 @@ const options = {
     swaggerDefinition: {
         openapi: '3.0.0',
         info: {
-            openapi: "3.0",
             title: "AppVerso",
             version: '2.0.0',
             description: 'Nada do que você tentar usar abaixo eu te garanto que irá funcinoar, mas deve funcionar da ' +
